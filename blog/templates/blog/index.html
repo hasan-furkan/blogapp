@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+<h1>Home Page</h1>
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-3">
+          {% include 'partials/_categories.html' %}
+      </div>
+      <div class="col-9">
+        {% for blog in blogs %}
+            {% if blog.is_home and blog.is_active %}
+                {% include 'blog/partials/_blog.html' %}
+            {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+{% endblock  %}
